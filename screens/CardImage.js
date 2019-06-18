@@ -8,7 +8,6 @@ const CardImage = props => {
  };
   return (
     <Image
-
     source={pic}
     style={{
       position: 'absolute',
