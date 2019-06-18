@@ -1,10 +1,23 @@
 import React from 'react';
-import { Button } from 'react-native';
+import '../data/data';
+import {Image} from 'react-native'
 
-const cardImage = props => {
+const CardImage = props => {
+  let pic = {
+   uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+ };
   return (
-    <Button title="Image goes here" onPress={props.onGetImage} />
+    <Image
+    resizeMode="contain"
+    source={pic}
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+  }}/>
   );
 };
 
-export default cardImage;
+export default CardImage;

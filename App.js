@@ -1,23 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import CardImage from './screens/CardImage.js'
+import CardImage from './screens/CardImage';
 
 export default function App() {
-  getImageCard = () => {
 
-  }
   return (
     <View style={styles.container}>
-      <CardImage onGetImage={this.getImageCard}/>
+      <View style={styles.image}>
+      <CardImage/>
+      </View>
+      <View style={styles.data}/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create ({
   container: {
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-});
+  image: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  data: {
+    flex: 2,
+    backgroundColor: 'white',
+  },
+})
