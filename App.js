@@ -26,7 +26,7 @@ const styles = StyleSheet.create ({
     justifyContent: 'center'
   },
   data: {
-    flex: 2,
+    flex: 1,
     backgroundColor: 'white',
   },
 })

@@ -4,11 +4,11 @@ import {Image} from 'react-native'
 
 const CardImage = props => {
   let pic = {
-   uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+   uri: 'https://firebasestorage.googleapis.com/v0/b/varathon-a9121.appspot.com/o/Yugioh%2FBooster%20Pack%2FShadows_in_Valhalla%2Fartwork%2FSHVA-EN047_super%20rare.jpg?alt=media'
  };
   return (
     <Image
-    resizeMode="contain"
+
     source={pic}
     style={{
       position: 'absolute',
