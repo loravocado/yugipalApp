@@ -1,17 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import CardImage from './screens/CardImage';
 import  Header  from './components/Header';
+import Info from './components/Info';
 
 export default function App() {
 
   return (
+    <View style={{flex:1}}>
+    <View style={styles.padding}/>
     <View style={styles.container}>
       <Header/>
+
       <View style={styles.image}>
-      <CardImage/>
+        <CardImage/>
       </View>
-      <View style={styles.data}/>
+      <View style={styles.data}>
+        <Info/>
+      </View>
+    </View>
     </View>
   );
 }
@@ -19,9 +26,14 @@ export default function App() {
 
 const styles = StyleSheet.create ({
   container: {
-    flex: 1,
+    flex: 29,
     flexDirection: 'column',
     backgroundColor: '#fff',
+  },
+  padding:{
+    flexDirection:'column',
+    flex:1,
+    textAlign:'center',
   },
   image: {
     flex: 6,
