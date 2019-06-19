@@ -11,7 +11,6 @@ export default function App() {
     <View style={styles.padding}/>
     <View style={styles.container}>
       <Header/>
-
       <View style={styles.image}>
         <CardImage/>
       </View>

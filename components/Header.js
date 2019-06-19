@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+TouchableOpacity,
 Image,
 View,
 Platform,
@@ -12,12 +13,15 @@ const Header = props => {
       <View style={headerStyles.container}>
         <View style={headerStyles.arrowContainer}>
           <View style={headerStyles.arrow}/>
+          <TouchableOpacity onPress={this._onPressButton}>
           <Image
             resizeMode='contain'
-            style={{flex:1, width:35, height:35}}
+            style={{flex:1, width:12, height:12}}
             source={require('../assets/back.png')}/>
+          </TouchableOpacity>
         </View>
       <Text style= {headerStyles.text}>Ash Blossom & Joyous Spring</Text>
+      <View style={{flex:1}}/>
       </View>
     );
 };
@@ -44,6 +48,5 @@ const headerStyles = StyleSheet.create ({
     textAlign:'center',
     flex:10,
     fontSize:17,
-    fontWeight:'bold',
   },
 })
