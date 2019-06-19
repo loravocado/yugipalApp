@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import CardImage from './screens/CardImage';
+import CardGrid from './screens/CardGrid';
 
 export default function App() {
 
   return (
     <View style={{flex:1}}>
-        <CardImage/>
+      <CardGrid/>
     </View>
   );
 }
