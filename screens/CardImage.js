@@ -1,22 +1,47 @@
 import React from 'react';
-import '../data/data';
-import {Image} from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import CentralImage from '../components/CentralImage';
+import  Header  from '../components/Header';
+import Info from '../components/Info';
 
 const CardImage = props => {
-  let pic = {
-   uri: 'https://firebasestorage.googleapis.com/v0/b/varathon-a9121.appspot.com/o/Yugioh%2FBooster%20Pack%2FShadows_in_Valhalla%2Fartwork%2FSHVA-EN047_super%20rare.jpg?alt=media'
- };
   return (
-    <Image
-    source={pic}
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      bottom: 0,
-      right: 0,
-  }}/>
+    <View style={{flex:1}}>
+    <View style={styles.padding}/>
+    <View style={styles.container}>
+      <Header/>
+      <View style={styles.image}>
+        <CentralImage/>
+      </View>
+      <View style={styles.data}>
+        <Info/>
+      </View>
+    </View>
+    </View>
   );
-};
+}
+
+
+const styles = StyleSheet.create ({
+  container: {
+    flex: 29,
+    flexDirection: 'column',
+    backgroundColor: '#fff',
+  },
+  padding:{
+    flexDirection:'column',
+    flex:1,
+    textAlign:'center',
+  },
+  image: {
+    flex: 6,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  data: {
+    flex: 6,
+    backgroundColor: 'white',
+  },
+})
 
 export default CardImage;
