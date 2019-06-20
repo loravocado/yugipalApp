@@ -1,14 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import CardImage from './screens/CardImage.js'
+import MainScreen from './screens/MainScreen'
 
 export default function App() {
-  getImageCard = () => {
 
-  }
   return (
     <View style={styles.container}>
-      <CardImage onGetImage={this.getImageCard}/>
+      <MainScreen/>
     </View>
   );
 }
