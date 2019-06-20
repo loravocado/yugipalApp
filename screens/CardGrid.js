@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { data } from "../data/data";
+import { CardImageScreen } from "./CardImage"
+
 //import rect in our project
 import {
   StyleSheet,
@@ -12,49 +15,78 @@ import {
 } from 'react-native';
 //import all the components we will need
 
-export default class CardGrid extends Component {
+export default class CardGridScreen extends Component {
   constructor() {
     super();
     this.state = {
-      dataSource: {},
+      cardData: [],
     };
   }
+
+
+  LoadAllTeaserCards() {
+      var allCardsMap = []
+      for (set in data){
+          //data[set]["cards"].length
+          for(cardNum = 0; cardNum < 2; cardNum++){
+              let tempCardName = data[set]["cards"][cardNum]["name"]
+              let cardData = {
+                  cardName: tempCardName,
+                  cardSetNumber: data[set]["cards"][cardNum]["set number"],
+                  cardSetName: set,
+                  cardRarity: data[set]["cards"][cardNum]["rarity"],
+                  cardType: data[set]["cards"][cardNum]["card type"],
+                  cardDescription: data[set]["cards"][cardNum]["card details"]["Description"],
+                  cardArtwork: data[set]["cards"][cardNum]["artwork"],
+                  cardImage: data[set]["cards"][cardNum]["image"],
+              }
+
+              allCardsMap.push(cardData)
+          }
+      }
+      return allCardsMap
+  }
+
   componentDidMount() {
-    var that = this;
-    let items = Array.apply(null, Array(60)).map((v, i) => {
-      return { id: i, src: 'https://firebasestorage.googleapis.com/v0/b/varathon-a9121.appspot.com/o/Yugioh%2FBooster%20Pack%2FShadow_of_Infinity%2Fimage%2FSOI-EN002_ultra%20rare.jpg?alt=media' };
-    });
-    that.setState({
-      dataSource: items,
-    });
+    this.setState({
+      cardData:  this.LoadAllTeaserCards()
+    })
   }
   _onPressButton() {
   Alert.alert('You tapped the button!')
-}
-_onLongPressButton() {
-Alert.alert('You long pressed the button!')
-}
+  cardData.findIndex(obj => obj.cardName === email)
+  }
+
+  _onLongPressButton() {
+  Alert.alert('You long pressed the button!')
+  }
+
+  actionOnRow(item, index) {
+    return <CardImageScreen/>
+  }
+
   render() {
     return (
+      
       <View style={styles.MainContainer}>
         <View style={styles.header}>
           <Text style={styles.text}>Cards</Text>
         </View>
-      <View style={{flex:12}}>
-        <FlatList
-          data={this.state.dataSource}
-          renderItem={({ item }) => (
-            <View style={{ flex: 1, flexDirection: 'column', margin: 4 }}>
-              <TouchableOpacity onLongPress={this._onLongPressButton} onPress={this._onPressButton} activeOpacity={0.6}>
-              <Image style={styles.imageThumbnail} source={{ uri: item.src }} />
-              </TouchableOpacity>
-            </View>
-          )}
-          //Setting the number of column
-          numColumns={3}
-          keyExtractor={(item, index) => index}
-        />
-      </View>
+        <View style={{flex:12}}>
+          <FlatList
+            data={this.state.cardData}
+            renderItem={({ item, index }) => (
+              <View style={{ flex: 1, flexDirection: 'column', margin: 4 }}>
+                <TouchableOpacity onLongPress={this._onLongPressButton} onPress={() => this.actionOnRow(item, index)} activeOpacity={0.6}>
+                <Image style={styles.imageThumbnail} source={{ uri: item.cardImage }} />
+                </TouchableOpacity>
+              </View>
+            )}
+            //Setting the number of column
+            numColumns={3}
+            keyExtractor={(item, index) => index}
+          />
+        </View>
       </View>
     );
   }

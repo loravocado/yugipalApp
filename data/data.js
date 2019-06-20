@@ -1,5 +1,4 @@
-var data=
-{
+export const data = {
     "Shadows_in_Valhalla":{
         "cards":[
             {

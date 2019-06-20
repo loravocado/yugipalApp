@@ -10,7 +10,7 @@ const CardGridComponent = props => {
     // console.log(data["Shadows_in_Valhalla"])
     function RenderAllTeaserCards(){ 
         Object.keys(allCardsMap).map(function(key) {
-            console.log(key)
+            // console.log(key)
             return <CardTeaserComponent data={allCardsMap[key]} />
             // <Text style={{width: 100, height: 100}}>{key}</Text>
         });

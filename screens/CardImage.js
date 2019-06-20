@@ -4,7 +4,7 @@ import CentralImage from '../components/CentralImage';
 import  Header  from '../components/Header';
 import Info from '../components/Info';
 
-const CardImage = props => {
+const CardImageScreen = props => {
   return (
     <View style={{flex:1}}>
     <View style={styles.padding}/>
@@ -44,4 +44,4 @@ const styles = StyleSheet.create ({
   },
 })
 
-export default CardImage;
+export default CardImageScreen;
