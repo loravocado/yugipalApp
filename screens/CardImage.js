@@ -1,37 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import CentralImage from '../components/CentralImage';
-import  Header  from '../components/Header';
 import Info from '../components/Info';
 
-const CardImageScreen = props => {
+export default class CardImageScreen extends Component {
+  static navigationOptions = {
+  title: 'Card Name',
+  headerTitleStyle: {
+    fontWeight: 'normal',
+    textAlign: 'center',
+    flex: 1,
+    alignSelf: "center",
+  },
+  backTitle: "",
+  headerRight: <View/>
+};
+
+render() {
+  const {navigate} = this.props.navigation;
   return (
-    <View style={{flex:1}}>
-    <View style={styles.padding}/>
     <View style={styles.container}>
-      <Header/>
       <View style={styles.image}>
         <CentralImage/>
       </View>
       <View style={styles.data}>
+        <ScrollView contentContainerStyle={styles.scroll}>
         <Info/>
+        </ScrollView>
       </View>
     </View>
-    </View>
-  );
+
+    );
+  }
 }
-
-
 const styles = StyleSheet.create ({
   container: {
-    flex: 29,
+    flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fff',
   },
-  padding:{
-    flexDirection:'column',
-    flex:1,
-    textAlign:'center',
+  scroll: {
+    flexGrow: 1,
+    flexDirection: 'column',
   },
   image: {
     flex: 6,
@@ -42,6 +52,4 @@ const styles = StyleSheet.create ({
     flex: 6,
     backgroundColor: 'white',
   },
-})
-
-export default CardImageScreen;
+});

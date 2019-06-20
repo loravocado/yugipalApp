@@ -1,22 +1,24 @@
+
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import CardImageScreen from './screens/CardImage';
 import CardGridScreen from './screens/CardGrid';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-const AppContainer = createAppContainer(AppNavigator);
+// export default function App() {
+//
+//   return (
+//     <View style={{flex:1}}>
+//       <CardGridScreen/>
+//     </View>
+//   );
+// }
 
-export default class App extends React.Component {
-  render() {
-    return <AppContainer />;
-  }
-}
+const MainNavigator = createStackNavigator({
+  Home: {screen: CardGridScreen},
+  Profile: {screen: CardImageScreen},
+});
 
-const AppNavigator = createStackNavigator({
-  CardGrid: CardGridScreen,
-  CardImage: CardImageScreen
-  },
-  {
-    initialRouteName: "CardGrid"
-  }
-);
+const App = createAppContainer(MainNavigator);
+
+export default App;

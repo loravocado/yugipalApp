@@ -12,7 +12,7 @@ const Info = props => {
     return(
       <View style={infoStyles.container}>
       <View style={{flex:1}}/>
-      <View style={{flex:12, flexDirection:'column'}}>
+      <View style={{flex:25, flexDirection:'column'}}>
       <View style={{flex:1}}/>
 
       <View style={infoStyles.padding}>
@@ -35,9 +35,9 @@ const Info = props => {
         <Text style={infoStyles.textInfo}>Fire type Pokemon</Text>
       </View>
 
-      <View style={infoStyles.description}>
+      <View style={infoStyles.padding}>
         <Text style={infoStyles.textTitle}>DESCRIPTION</Text>
-        <Text style={infoStyles.textInfo}>Nom nom nom nom Nom nom nom Nom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nom nom</Text>
+        <Text style={infoStyles.description}>Nom nom nom nom Nom nom nom Nom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nomNom nom nom nom Nom nom nom nom</Text>
       </View>
 
     </View>
@@ -53,15 +53,17 @@ const infoStyles = StyleSheet.create({
     flexDirection:'row',
   },
   padding:{
-    flex:4,
-  },
-  description:{
-    flex:7,
+    margin:10,
   },
   textTitle:{
     fontSize: 12,
   },
   textInfo:{
+    fontSize:15,
+    justifyContent:'space-between',
+    color:'#676767',
+  },
+  description: {
     fontSize:15,
     justifyContent:'space-between',
     color:'#676767',

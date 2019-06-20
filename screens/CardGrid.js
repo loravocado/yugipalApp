@@ -16,6 +16,14 @@ import {
 //import all the components we will need
 
 export default class CardGridScreen extends Component {
+  static navigationOptions = {
+  title: 'Cards',
+    headerTitleStyle: {
+      fontWeight: 'normal',
+      textAlign: 'center',
+      flex: 1,
+    },
+};
   constructor() {
     super();
     this.state = {
@@ -53,7 +61,6 @@ export default class CardGridScreen extends Component {
     })
   }
   _onPressButton() {
-  Alert.alert('You tapped the button!')
   cardData.findIndex(obj => obj.cardName === email)
   }
 
@@ -66,19 +73,17 @@ export default class CardGridScreen extends Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation;
     return (
-      
+
       <View style={styles.MainContainer}>
-        <View style={styles.header}>
-          <Text style={styles.text}>Cards</Text>
-        </View>
         <View style={{flex:12}}>
           <FlatList
             data={this.state.cardData}
             renderItem={({ item, index }) => (
               <View style={{ flex: 1, flexDirection: 'column', margin: 4 }}>
-                <TouchableOpacity onLongPress={this._onLongPressButton} onPress={() => this.actionOnRow(item, index)} activeOpacity={0.6}>
-                <Image style={styles.imageThumbnail} source={{ uri: item.cardImage }} />
+                <TouchableOpacity onLongPress={this._onLongPressButton} onPress={() => navigate('Profile', {name: 'Jane'})} activeOpacity={0.6}>
+                <Image resizeMode='contain' style={styles.imageThumbnail} source={{ uri: item.cardImage }} />
                 </TouchableOpacity>
               </View>
             )}
@@ -96,12 +101,11 @@ const styles = StyleSheet.create({
   MainContainer: {
     justifyContent: 'center',
     flex: 1,
-    paddingTop: 30,
   },
   imageThumbnail: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 200,
+    height: 185,
   },
   header: {
     flex:1,
