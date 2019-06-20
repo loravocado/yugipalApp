@@ -1,21 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MainScreen from './screens/MainScreen'
-
+import CardImage from './screens/CardImage';
+import CardGrid from './screens/CardGrid';
 export default function App() {
 
   return (
-    <View style={styles.container}>
-      <MainScreen/>
+    <View style={{flex:1}}>
+      <CardGrid/>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
