@@ -1,12 +1,13 @@
 import React from 'react';
-import {Image} from 'react-native'
+import {Image, Alert} from 'react-native'
+import ImageLoader from '../components/ImageLoader';
 
 const CentralImage = props => {
   let pic = {
-   uri: 'https://firebasestorage.googleapis.com/v0/b/varathon-a9121.appspot.com/o/Yugioh%2FBooster%20Pack%2FShadows_in_Valhalla%2Fartwork%2FSHVA-EN047_super%20rare.jpg?alt=media'
+   uri: props.cardArtwork
  };
   return (
-    <Image
+    <ImageLoader
     source={pic}
     style={{
       position: 'absolute',
@@ -15,9 +16,6 @@ const CentralImage = props => {
       bottom: 0,
       right: 0,
   }}/>
-
-
-
   );
 };
 

@@ -1,32 +1,39 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView,Alert } from 'react-native';
 import CentralImage from '../components/CentralImage';
 import Info from '../components/Info';
+import FadeInView from '../components/FadeInView';
+
 
 export default class CardImageScreen extends Component {
-  static navigationOptions = {
-  title: 'Card Name',
+static navigationOptions = ({ navigation }) => ({
+  title: navigation.state.params.data["cardName"],
   headerTitleStyle: {
     fontWeight: 'normal',
     textAlign: 'center',
     flex: 1,
     alignSelf: "center",
+    fontSize: 18,
   },
   backTitle: "",
   headerRight: <View/>
-};
+});
 
 render() {
-  const {navigate} = this.props.navigation;
+
+  const {navigate} = this.props.navigation
+
   return (
     <View style={styles.container}>
       <View style={styles.image}>
-        <CentralImage/>
+        <CentralImage cardArtwork = {this.props.navigation.state.params.data["cardArtwork"]}/>
       </View>
       <View style={styles.data}>
+        <FadeInView>
         <ScrollView contentContainerStyle={styles.scroll}>
-        <Info/>
+        <Info data = {this.props.navigation.state.params.data}/>
         </ScrollView>
+        </FadeInView>
       </View>
     </View>
 

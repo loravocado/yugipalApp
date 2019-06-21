@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { data } from "../data/data";
 import { CardImageScreen } from "./CardImage"
-
-//import rect in our project
+import ImageLoader from '../components/ImageLoader';
 import {
   StyleSheet,
   View,
@@ -22,6 +21,7 @@ export default class CardGridScreen extends Component {
       fontWeight: 'normal',
       textAlign: 'center',
       flex: 1,
+      fontSize: 20,
     },
 };
   constructor() {
@@ -36,12 +36,12 @@ export default class CardGridScreen extends Component {
       var allCardsMap = []
       for (set in data){
           //data[set]["cards"].length
-          for(cardNum = 0; cardNum < 2; cardNum++){
+          for(cardNum = 0; cardNum < data[set]["cards"].length; cardNum++){
               let tempCardName = data[set]["cards"][cardNum]["name"]
               let cardData = {
                   cardName: tempCardName,
                   cardSetNumber: data[set]["cards"][cardNum]["set number"],
-                  cardSetName: set,
+                  cardSetName: data[set]["cards"][cardNum]["Search Tag"],
                   cardRarity: data[set]["cards"][cardNum]["rarity"],
                   cardType: data[set]["cards"][cardNum]["card type"],
                   cardDescription: data[set]["cards"][cardNum]["card details"]["Description"],
@@ -60,17 +60,6 @@ export default class CardGridScreen extends Component {
       cardData:  this.LoadAllTeaserCards()
     })
   }
-  _onPressButton() {
-  cardData.findIndex(obj => obj.cardName === email)
-  }
-
-  _onLongPressButton() {
-  Alert.alert('You long pressed the button!')
-  }
-
-  actionOnRow(item, index) {
-    return <CardImageScreen/>
-  }
 
   render() {
     const {navigate} = this.props.navigation;
@@ -82,8 +71,8 @@ export default class CardGridScreen extends Component {
             data={this.state.cardData}
             renderItem={({ item, index }) => (
               <View style={{ flex: 1, flexDirection: 'column', margin: 4 }}>
-                <TouchableOpacity onLongPress={this._onLongPressButton} onPress={() => navigate('Profile', {name: 'Jane'})} activeOpacity={0.6}>
-                <Image resizeMode='contain' style={styles.imageThumbnail} source={{ uri: item.cardImage }} />
+                <TouchableOpacity onPress={() => navigate('CardImageScreenNav', {data: this.state.cardData[index]})} activeOpacity={0.6}>
+                <ImageLoader resizeMode='contain' style={styles.imageThumbnail} source={{ uri: item.cardImage }} />
                 </TouchableOpacity>
               </View>
             )}
@@ -101,11 +90,13 @@ const styles = StyleSheet.create({
   MainContainer: {
     justifyContent: 'center',
     flex: 1,
+    marginLeft: 12,
+    marginRight: 12,
   },
   imageThumbnail: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 185,
+    height: 175,
   },
   header: {
     flex:1,

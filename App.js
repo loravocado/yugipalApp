@@ -16,7 +16,7 @@ import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
   Home: {screen: CardGridScreen},
-  Profile: {screen: CardImageScreen},
+  CardImageScreenNav: {screen: CardImageScreen},
 });
 
 const App = createAppContainer(MainNavigator);
