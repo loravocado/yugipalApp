@@ -8,7 +8,7 @@ StyleSheet,
 ScrollView,
 } from 'react-native';
 
-const Info = props => {
+const CardInfo = props => {
     return(
 
       <View style={infoStyles.container}>
@@ -45,7 +45,7 @@ const Info = props => {
   );
 };
 
-export default Info;
+export default CardInfo;
 
 const infoStyles = StyleSheet.create({
   container:{

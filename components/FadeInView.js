@@ -18,9 +18,9 @@ export default class FadeInView extends Component {
 
   render() {
     let { fadeAnim } = this.state;
-
+     // Special animatable View
     return (
-      <Animated.View                 // Special animatable View
+      <Animated.View
         style={{
           ...this.props.style,
           opacity: fadeAnim,         // Bind opacity to animated value

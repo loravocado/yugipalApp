@@ -31,7 +31,7 @@ render() {
       <View style={styles.data}>
         <FadeInView>
         <ScrollView contentContainerStyle={styles.scroll}>
-        <Info data = {this.props.navigation.state.params.data}/>
+        <CardInfo data = {this.props.navigation.state.params.data}/>
         </ScrollView>
         </FadeInView>
       </View>
