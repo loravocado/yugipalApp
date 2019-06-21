@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { data } from "../data/data";
-import { CardImageScreen } from "./CardImage"
+import CardImageScreen from "./CardImage"
 import ImageLoader from '../components/ImageLoader';
 import {
   StyleSheet,
@@ -70,13 +70,12 @@ export default class CardGridScreen extends Component {
           <FlatList
             data={this.state.cardData}
             renderItem={({ item, index }) => (
-              <View style={{ flex: 1, flexDirection: 'column', margin: 4 }}>
+              <View style={styles.cardContainer}>
                 <TouchableOpacity onPress={() => navigate('CardImageScreenNav', {data: this.state.cardData[index]})} activeOpacity={0.6}>
                 <ImageLoader resizeMode='contain' style={styles.imageThumbnail} source={{ uri: item.cardImage }} />
                 </TouchableOpacity>
               </View>
             )}
-            //Setting the number of column
             numColumns={3}
             keyExtractor={(item, index) => index}
           />
@@ -93,6 +92,11 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginRight: 12,
   },
+  cardContainer: {
+   flex: 1,
+   flexDirection: 'column',
+   margin: 4,
+ },
   imageThumbnail: {
     justifyContent: 'center',
     alignItems: 'center',

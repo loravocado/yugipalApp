@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView,Alert } from 'react-native';
 import CentralImage from '../components/CentralImage';
-import Info from '../components/Info';
+import CardInfo from '../components/CardInfo';
 import FadeInView from '../components/FadeInView';
 
 

@@ -5,15 +5,6 @@ import CardImageScreen from './screens/CardImage';
 import CardGridScreen from './screens/CardGrid';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-// export default function App() {
-//
-//   return (
-//     <View style={{flex:1}}>
-//       <CardGridScreen/>
-//     </View>
-//   );
-// }
-
 const MainNavigator = createStackNavigator({
   Home: {screen: CardGridScreen},
   CardImageScreenNav: {screen: CardImageScreen},

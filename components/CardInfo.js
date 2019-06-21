@@ -12,9 +12,9 @@ const CardInfo = props => {
     return(
 
       <View style={infoStyles.container}>
-        <View style={{flex:1}}/>
-        <View style={{flex:35, flexDirection:'column'}}>
-          <View style={{flex:1}}/>
+        <View style={infoStyles.containerPadding}/>
+        <View style={infoStyles.textContainer}>
+          <View style={infoStyles.containerPadding}/>
 
           <View style={infoStyles.padding}>
             <Text style={infoStyles.textTitle}>SET</Text>
@@ -52,17 +52,25 @@ const infoStyles = StyleSheet.create({
     flex:1,
     flexDirection:'row',
   },
+  containerPadding: {
+    flex:1,
+  },
   padding:{
     margin:10,
   },
+  textContainer: {
+    flex:35,
+    flexDirection:'column',
+  },
   textTitle:{
     fontSize: 12,
+    fontWeight: 'bold',
   },
   textInfo:{
     fontSize:15,
     justifyContent:'space-between',
     color:'#676767',
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
   },
   description: {
     fontSize:15,

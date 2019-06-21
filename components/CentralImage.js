@@ -1,5 +1,8 @@
 import React from 'react';
-import {Image, Alert} from 'react-native'
+import {
+  Image,
+  Alert
+} from 'react-native';
 import ImageLoader from '../components/ImageLoader';
 
 const CentralImage = props => {
@@ -15,7 +18,7 @@ const CentralImage = props => {
       left: 0,
       bottom: 0,
       right: 0,
-  }}/>
+    }}/>
   );
 };
 
